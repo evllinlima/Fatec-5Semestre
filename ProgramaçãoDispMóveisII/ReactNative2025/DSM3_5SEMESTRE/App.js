@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, View, Button, Pressable } from 'react-native';
-import { TextInput, Divider, Text } from 'react-native-paper';
+import { TextInput, Divider, Text, IconButton } from 'react-native-paper';
 
 
 export default function App() {
@@ -93,15 +93,18 @@ export default function App() {
 
           <Divider />
           <Pressable style={{
+            flexDirection: 'row',
+            alignItems: 'center',
             backgroundColor: 'red',
-            padding: 10,
+            padding: 8,
             marginTop: 10,
             borderRadius: 5,
-            width: 100,
-            textAlign: 'center',
+            width: 110,
             fontSize: 14,
+            justifyContent: 'center',
           }} onPress={deletarCep}>
-            <Text>Deletar</Text>
+            <IconButton icon="delete-outline" size={18} color="white" style={{ margin: 0 }} />
+            <Text style={{ color: 'white', fontSize: 14 }}>Deletar</Text>
           </Pressable>
         </View>
       )}
