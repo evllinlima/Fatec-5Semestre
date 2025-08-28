@@ -20,6 +20,10 @@ export default function App() {
       });
   }
 
+  const deletarCep = () => {
+    setDadosCep([]);
+  }
+
   return (
     <View style={styles.container}>
       <Text> Consulta o CEP: </Text>
@@ -83,13 +87,14 @@ export default function App() {
             editable={false}
             style={{ marginBottom: 10 }}
           />
+
           <Divider />
           <Pressable style={{
             backgroundColor: 'red',
             padding: 10,
             borderRadius: 5,
             width: 100
-          }} onPress={() => buscaCep(cep)}>
+          }} onPress={deletarCep}>
             <Text>Deletar</Text>
           </Pressable>
         </View>
