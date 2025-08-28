@@ -29,7 +29,7 @@ export default function App() {
           borderColor: 'gray',
           borderWidth: 1,
           width: 200,
-          marginTop: 10
+          marginTop: 10,
         }}
         label="Digite o CEP"
         placeholder="123456789"
@@ -38,18 +38,18 @@ export default function App() {
       ></TextInput>
       <Pressable>
         <Text style={{
-          backgroundColor: 'purple',
+          backgroundColor: 'blue',
           color: 'white',
           padding: 10,
           marginTop: 10,
-          borderRadius: 5,
+          borderRadius: 15,
         }} onPress={() => buscaCep(cep)}>
           Buscar CEP
         </Text>
       </Pressable>
 
-      <Text style={{ marginTop: 20 }}> 
-      CEP: {cep}
+      <Text style={{ marginTop: 20 }}>
+        CEP: {cep}
       </Text>
 
       {dadosCep.length === 0 ? (
@@ -62,13 +62,27 @@ export default function App() {
             editable={false}
             style={{ marginBottom: 10 }}
           />
-          <Text>Logradouro: {dadosCep.logradouro}</Text>
           <Divider />
-          <Text>Bairro: {dadosCep.bairro}</Text>
+          <TextInput
+            label='Bairro'
+            value={dadosCep.bairro}
+            editable={false}
+            style={{ marginBottom: 10 }}
+          />
           <Divider />
-          <Text>Cidade: {dadosCep.localidade}</Text>
+          <TextInput
+            label='Cidade'
+            value={dadosCep.localidade}
+            editable={false}
+            style={{ marginBottom: 10 }}
+          />
           <Divider />
-          <Text>Estado: {dadosCep.uf}</Text>
+          <TextInput
+            label='Estado'
+            value={dadosCep.uf}
+            editable={false}
+            style={{ marginBottom: 10 }}
+          />
           <Divider />
           <Pressable style={{
             backgroundColor: 'red',
@@ -88,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 100,
+    padding: 20
   },
 });
