@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text> Consulta o CEP: </Text>
+      <Text style={{ fontSize: 18 }}> Consulta o CEP: </Text>
       <TextInput
         style={{
           height: 40,
@@ -46,7 +46,10 @@ export default function App() {
           color: 'white',
           padding: 10,
           marginTop: 10,
-          borderRadius: 15,
+          borderRadius: 10,
+          width: 100,
+          textAlign: 'center',
+          fontSize: 14,
         }} onPress={() => buscaCep(cep)}>
           Buscar CEP
         </Text>
@@ -92,8 +95,11 @@ export default function App() {
           <Pressable style={{
             backgroundColor: 'red',
             padding: 10,
+            marginTop: 10,
             borderRadius: 5,
-            width: 100
+            width: 100,
+            textAlign: 'center',
+            fontSize: 14,
           }} onPress={deletarCep}>
             <Text>Deletar</Text>
           </Pressable>
