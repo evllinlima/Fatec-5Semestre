@@ -11,7 +11,7 @@ print('Tabela de dados:\n', df_jogar)
 input('Aperte uma tecla para continuar: \n')
 
 #%% SELEÇÃO DOS DADOS
-# rotulos ou marcadores
+# rotulos ou marcadores, apenas marcam a linha.
 dias = df_jogar['Dia']
 print("Rotulos:\n", dias)
 input('Aperte uma tecla para continuar: \n')
