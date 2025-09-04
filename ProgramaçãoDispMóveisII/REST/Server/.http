@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:3000
+
+### Método GET
+GET {{baseUrl}}
+
+### Método POST
+POST {{baseUrl}}/inserir
+Content-Type: application/json
+
+{
+    "name": "Tânia"
+}
+
+### Método DELETE
+DELETE {{baseUrl}}/deletar
+Content-Type: application/json
+
+{
+    "name": "Evellin"
+}
+
+### Método DELETAR COM ID
+DELETE {{baseUrl}}/deletar/68b8cb54261e5b1d1a41aee9
+
+## Método LISTAR COM ID
+GET {{baseUrl}}/listar/68b8cb54261e5b1d1a41aee9
+
+
