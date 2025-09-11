@@ -6,7 +6,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Evellin Lima",
+  "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
