@@ -4,14 +4,14 @@
 GET {{baseUrl}}
 
 ### GET by ID
-GET {{baseUrl}}/68b8d209cc1b2d00f3315b07
+GET {{baseUrl}}/68c20035ce4213e2ac1a9dea
 
 ### Post
-POST {{baseUrl}}/inseir
+POST {{baseUrl}}/inserir
 Content-Type: application/json
 
 {
-    "name": "João "
+    "name": "Eva"
 }
 
 ### Delete
@@ -19,16 +19,16 @@ DELETE {{baseUrl}}/deletar
 Content-Type: application/json
 
 {
-    "name": "SoPHIA "
+    "name": "João "
 
 }
 
 ### DELETE by ID
-DELETE {{baseUrl}}/deletar/68b8cb5ad786955c6087eeac
+DELETE {{baseUrl}}/deletar/68cb37805c69a7d70caf08d8
 
 
 ### PUT by ID
-PUT {{baseUrl}}/alterar/68b8d209cc1b2d00f3315b07
+PUT {{baseUrl}}/alterar/68cb37805c69a7d70caf08d8
 Content-Type: application/json  
 
 {

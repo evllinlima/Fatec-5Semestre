@@ -45,7 +45,7 @@ var User = mongoose.model('Usuario', { nome: String });
 
 // inserir dados
 
-app.post('/inseir', async(req, res) => {
+app.post('/inserir', async(req, res) => {
     let corpo = req.body.name;
     //let corpo = "Ricardo";
     let user = await new User({ nome: corpo });
