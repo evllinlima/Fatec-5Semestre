@@ -31,6 +31,7 @@ input('Aperte uma tecla para continuar:')
 
 #%% SEPARAÇÃO TREINO/TESTE
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+#%% 0.2 é igual a 20% dos dados para teste e 80% para treino
 print('\nFormato treino:', X_train.shape, y_train.shape)
 print('Formato teste:', X_test.shape, y_test.shape)
 input('Aperte uma tecla para continuar:')
