@@ -1,23 +1,82 @@
-// Controlador de usuário (usuario)
-// Simulação de dados em memória
-let usuarios = [
-  { id: 1, nome: 'João', email: 'joao@email.com' },
-  { id: 2, nome: 'Maria', email: 'maria@email.com' }
-];
+const BASE_URLS = ["http://10.0.2.2:3000", "http://localhost:3000"];
 
-export function listarUsuarios() {
-  return usuarios;
+function pickBase() {
+  return BASE_URLS[0];
 }
 
-export function adicionarUsuario(usuario) {
-  usuario.id = Date.now();
-  usuarios.push(usuario);
+/** * Lista todos os usuários
+ * @returns
+ */
+export async function listarUsuarios() {
+  try {
+    const res = await fetch(`${pickBase()}/`);
+    const data = await res.json();
+    if (Array.isArray(data))
+      return data.map((usuario) => ({ ...usuario, id: usuario._id || usuario.id }));
+    return [];
+  } catch (err) {
+    console.warn("Erro ao listar usuários:", err);
+    return [];
+  }
 }
 
-export function editarUsuario(id, novoUsuario) {
-  usuarios = usuarios.map(u => u.id === id ? { ...u, ...novoUsuario } : u);
+/** * Adiciona um novo usuário
+ * @param {*} usuario
+ * @returns
+ */
+export async function adicionarUsuario(usuario) {
+  try {
+    const res = await fetch(`${pickBase()}/inserir`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(usuario),
+    });
+    const json = await res.json();
+    if (!res.ok)
+      throw new Error(
+        json && json.message ? json.message : "erro ao adicionar"
+      );
+    return json;
+  } catch (err) {
+    console.warn("Erro ao adicionar usuário:", err);
+    throw err;
+  }
 }
 
-export function excluirUsuario(id) {
-  usuarios = usuarios.filter(u => u.id !== id);
+/** * Edita um usuário pelo ID
+ * @param {*} id
+ * @param {*} novoUsuario
+ * @returns
+ */
+export async function editarUsuario(id, novoUsuario) {
+  try {
+    const res = await fetch(`${pickBase()}/alterar/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(novoUsuario),
+    });
+    const json = await res.json();
+    if (!res.ok)
+      throw new Error(json && json.message ? json.message : "erro ao editar");
+    return json;
+  } catch (err) {
+    console.warn("Erro ao editar usuário:", err);
+    throw err;
+  }
+}
+
+/** * Exclui um usuário pelo ID
+ * @param {*} id
+ * @returns
+ */
+export async function excluirUsuario(id) {
+  try {
+    const res = await fetch(`${pickBase()}/deletar/${id}`, {
+      method: "DELETE",
+    });
+    return await res.json();
+  } catch (err) {
+    console.warn("Erro ao excluir usuário:", err);
+    throw err;
+  }
 }
