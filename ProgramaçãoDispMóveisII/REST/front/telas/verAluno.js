@@ -12,7 +12,7 @@ export default function VerAluno({ route, navigation }) {
      */
     async function load() {
       try {
-        const res = await fetch(`http://10.0.2.2:3000/${id}`);
+        const res = await fetch(`http://192.168.50.91:3000/${id}`);
         const json = await res.json();
         setAluno(json);
       } catch (err) {

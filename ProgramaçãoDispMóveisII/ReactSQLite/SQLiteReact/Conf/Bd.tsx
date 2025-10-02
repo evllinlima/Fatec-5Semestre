@@ -57,5 +57,30 @@ async function selectTodos(db: SQLite.SQLiteDatabase) {
     }
 }
 
+//---------------------------deletar usuário------------------------------------
+async function deleteUsuario(db: SQLite.SQLiteDatabase, id: number) {
+    try {
+        await db.runAsync(
+            `DELETE FROM USUARIO WHERE ID_USUARIO = ?`, id
+        );
+    } catch (error) {
+        console.log('Erro ao deletar usuário: ' + error);
+    }
+}
+
+// ---------------------------Alterar usuário-----------------------------------------
+// função que atualiza o usuário de forma assíncrona
+async function atualizarUsuario(db: SQLite.SQLiteDatabase, id: number, nome: string, email: string) {
+    try {
+        await db.runAsync(
+            //o ? é um placeholder para evitar SQL Injection. Ele será substituído pelos valores passados como parâmetros
+            `UPDATE USUARIO SET NOME_USUARIO = ?, EMAIL_USUARIO = ? WHERE ID_USUARIO = ?`, nome, email, id
+        );
+        console.log('Usuário atualizado com sucesso');
+    } catch (error) {
+        console.log('Erro ao atualizar usuário: ' + error);
+    }
+}
+
 // exportar a função
-export { criarBanco, criarTabela, inserirUsuario, selectTodos };
+export { criarBanco, criarTabela, inserirUsuario, selectTodos, deleteUsuario, atualizarUsuario };

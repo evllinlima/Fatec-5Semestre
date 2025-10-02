@@ -1,4 +1,4 @@
-const BASE_URLS = ["http://10.0.2.2:3000", "http://localhost:3000"];
+const BASE_URLS = ["http://192.168.50.91:3000", "http://localhost:3000"];
 
 function pickBase() {
   return BASE_URLS[0];
