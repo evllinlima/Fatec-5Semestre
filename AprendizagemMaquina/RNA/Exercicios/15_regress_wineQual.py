@@ -25,8 +25,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Normalizar as variáveis de entrada
 # A lógica de normalização é a mesma
 scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+X_train = scaler.fit_transform(X_train)    # normaliza 0 a 1 cada var
+X_test = scaler.transform(X_test)       # usar mesma normalização acima
 
 #%% Construir e treinar a rede neural com MLPRegressor
 # A definição do modelo e o treinamento são feitos de forma mais direta
@@ -84,4 +84,15 @@ y_prev = model.predict(x_prev_normalizado)
 
 print(f"\nNota prevista para o vinho desconhecido: {y_prev[0]:.2f}")
 
+#%% ALGUNS PARÂMETROS DA REDE
+
+# print("\nClasses = ", model.classes_)     # lista de classes
+print("Erro = ", model.loss_)    # fator de perda (erro)
+print("Amostras visitadas = ", model.t_)     # número de amostras de treinamento visitadas 
+print("Atributos de entrada = ", model.n_features_in_)   # número de atributos de entrada (campos de X)
+print("N ciclos = ", model.n_iter_)      # númerode iterações no treinamento
+print("N de camadas = ", model.n_layers_)    # número de camadas da rede
+print("Tamanhos das camadas ocultas: ", model.hidden_layer_sizes)
+print("N de neurons saida = ", model.n_outputs_)   # número de neurons de saida
+print("F de ativação = ", model.out_activation_)  # função de ativação utilizada
 # %%
